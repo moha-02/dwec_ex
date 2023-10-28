@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="saludo" id="primero">Hola</p>
+    <p class="saludo">Que</p>
+    <p>Tal</p>
+
+    <script>
+        /*
+        css ->> background-color
+        js ->> backgroundColor
+        */
+        //1-cambiar hola por adios
+        // poenrlo azul
+
+        //var primero = document.querySelectos("#primero");
+        /*primero.innerHTML = "adios";
+        primero.style.color = "blue";*/
+
+        document.getElementById("primero").innerHTML = "adios"
+        document.getElementById("primero").style.color = "blue";
+
+        //2- Pintar la clase saludo de rojo
+        //ponerle background-color amarillo
+        var saludos = document.querySelectorAll(".saludo");
+        //saludo.style.backgroundColor = "yellow";
+        for (var i = 0; i < saludos.length; i++) {
+            saludos[i].style.color = "red"
+            saludos[i].style.backgroundColor = "yellow"
+        }
+
+        //3 Añadir a la palabra Tal un "?"
+        //cincatebar un interrogante sin volver a escribir tal
+
+        document.querySelector("p:nth-child(3)").innerHTML +="?";
+
+        //4 Añadir foto delante de Adios
+        //y ponerle 100px de ancho
+
+        var imagen = document.createElement("img");
+        imagen.src = "https://pm1.aminoapps.com/7706/0369015221a1b48e3e6b0440906e82d1abc9dd49r1-430-512v2_uhq.jpg";
+        imagen.style.width = "100px";
+        document.getElementById("primero").insertAdjacentElement("afterbegin",imagen);
+    </script>
+</body>
+</html>

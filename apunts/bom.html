@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="historial()">Historial</button>
+
+    <button onclick="abrirVentana()">Ventana</button>
+
+    <button onclick="cerrarVentana()">Cerrar</button>
+
+    <button onclick="refrescar()">Refrescar</button>
+
+    <button onclick="quienEres()">¿quien?</button>
+
+
+    <script>
+        var ventana;
+        function historial(){
+
+            history.go(-2);
+        }
+
+        function abrirVentana(){
+            ventana = window.open("https://www.cifpfbmoll.eu/","Borja","width: 250,height: 300");
+        }
+
+        function cerrarVentana(){
+            if(ventana){
+                ventana.close()
+            }
+        }
+
+        function refrescar(){
+            window.location.reload();
+        }
+
+        //pedir nombre y saludar usuario
+
+        function quienEres(){
+            
+            nombre  = window.prompt("Quien eres?");
+            window.alert("Hola "+nombre);
+
+        }
+
+        //abrir nueva ventana con web borja
+        //tamaño 250px * 300px
+        //BOM
+        /*
+            BOM -> window
+        */
+       
+    </script>
+</body>
+</html>

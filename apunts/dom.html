@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Modelos</title>
+</head>
+<body>
+
+    <script>
+        function Marca(nombre) {
+            this.nombre = nombre;
+        }
+
+        function Modelo(marca, nombre) {
+            this.marca = marca;
+            this.nombre = nombre;
+        }
+
+        var ford = new Marca("Ford");
+        var toyota = new Marca("Toyota");
+        var mercedes = new Marca("Mercedes");
+
+        var mustang = new Modelo(ford, "Mustang");
+        var corolla = new Modelo(toyota, "Corolla");
+        var a45 = new Modelo(mercedes, "A45 AMG S");
+
+        var modelos = [mustang, corolla, a45];
+
+        var tabla = document.createElement("table");
+
+        var trCab = document.createElement("tr");
+        tabla.appendChild(trCab);
+
+        var thMarca = document.createElement("th");
+        thMarca.innerHTML = "Marca";
+        var thModelo = document.createElement("th");
+        thModelo.innerHTML = "Modelo";
+        trCab.appendChild(thMarca);
+        trCab.appendChild(thModelo);
+
+        for (var i = 0; i < modelos.length; i++) {
+            var trInfo = document.createElement("tr");
+
+            var tdMarca = document.createElement("td");
+            tdMarca.innerHTML = modelos[i].marca.nombre;
+
+            var tdModelo = document.createElement("td");
+            tdModelo.innerHTML = modelos[i].nombre;
+
+            trInfo.appendChild(tdMarca);
+            trInfo.appendChild(tdModelo);
+            tabla.appendChild(trInfo);
+
+            if(i%2 === 0){
+                tabla.removeChild(trInfo);
+            }
+        }
+
+        var body = document.querySelector("body");
+        body.appendChild(tabla);
+    </script>
+</body>
+</html>
