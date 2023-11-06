@@ -1,0 +1,14 @@
+.cards{
+    display: flex;
+    padding: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    size: 10%;
+    
+}
+.card{
+    display: flex;
+    width: 150px;
+    height: 180px;
+
+}
