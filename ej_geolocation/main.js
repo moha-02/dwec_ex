@@ -4,6 +4,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+var myIcon = L.icon({
+    iconUrl: './klipartz.com.png',
+    iconSize: [50, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+    
+});
+L.marker([51.5, -0.09], {icon: myIcon}).addTo(map);
 
 navigator.geolocation.watchPosition(success,error);
 
@@ -26,8 +34,8 @@ function success(pos){
         map.removeLayer(circle);
     }
 
-    marker = L.marker([lat,lng]).addTo(map);
-    circle = L.circle([lat,lng],{radius: accuracy}).addTo(map);
+    marker = L.marker([lat,lng],{icon: myIcon}).addTo(map);
+    circle = L.circle([lat,lng],{radius: accuracy},{icon: myIcon}).addTo(map);
 
     if(!zoomed){
         zoomed = map.fitBounds(circle.getBounds());
@@ -55,8 +63,8 @@ function success(pos){
         default:
             for (let index = 0; index < size; index++) {
 
-                marker = L.marker([JSON.parse(localStorage.getItem(index)).lat,JSON.parse(localStorage.getItem(index)).lng]).addTo(map);
-                circle = L.circle([JSON.parse(localStorage.getItem(index)).lat,JSON.parse(localStorage.getItem(index)).lng],{radius: JSON.parse(localStorage.getItem(0)).accuracy}).addTo(map);
+                marker = L.marker([JSON.parse(localStorage.getItem(index)).lat,JSON.parse(localStorage.getItem(index)).lng],{icon: myIcon}).addTo(map);
+                circle = L.circle([JSON.parse(localStorage.getItem(index)).lat,JSON.parse(localStorage.getItem(index)).lng],{radius: JSON.parse(localStorage.getItem(0)).accuracy},{icon: myIcon}).addTo(map);
             }
             break;
     }
